@@ -1,0 +1,56 @@
+<%- include("partials/header"); -%>
+    <div class="search-box">
+        <form method="post" action="/search">
+            <input type="text" autocomplete="off" placeholder="Search here.........................." name="searchInput">
+            <button id="button-submit" type="submit">Search</button>
+        </form>
+
+    </div>
+    <div class="container">
+
+
+        <div class="main-box">
+            <div class="article-box">
+                <%    newsArray.forEach((article)=>{   %>
+                    <div class="article-card">
+
+
+
+                        <img id="articleimg" src=<%=article.urlToImage %> >
+                        <p>
+                            <%= article.publishedAt.substring(0,10) %>
+                        </p>
+
+                        <p class="article-heading">
+                            <%= article.title%>
+                        </p>
+                        <p class="article-para">
+                            <%= article.content.substring(0,90) %>
+                                <a class="atag" href="<%= article.url %>">
+                                    Readmore</a>
+
+                        </p>
+
+
+
+                    </div>
+
+                    <%     })   %>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <%- include("partials/footer"); -%>
